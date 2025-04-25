@@ -1,20 +1,31 @@
 package com.example.energydec.model.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
 import java.time.LocalDate;
 
+@Entity
 public class EnergyStatement {
 
-    Integer id;
+    @Id
+    private Integer id;
 
-    Integer headerId;
+    private Integer headerId;
 
-    LocalDate declarationDate;
+    private LocalDate declarationDate;
 
-    Integer buildingId;
+    private Integer buildingId;
 
-    Double energyPerformance; //Energiprestanda (kWh/m²)
+    private Double energyPerformance; //Energiprestanda (kWh/m²)
 
-    String inspectionCompany;
+    private String inspectionCompany;
 
-    String inspector;
+    private String inspector;
+
+    @OneToOne
+    @JoinColumn(name = "header_id", referencedColumnName = "id")
+    private EnergyStatementHeader header;
 }

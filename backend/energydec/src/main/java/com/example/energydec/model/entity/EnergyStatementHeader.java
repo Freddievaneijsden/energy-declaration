@@ -1,15 +1,24 @@
 package com.example.energydec.model.entity;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity
 public class EnergyStatementHeader {
 
-    Integer id;
+    @Id
+    private Integer id;
 
-    Status status;
+    private Status status;
 
-    String name;
+    private String name;
 
-    String version;
+    private String version;
 
-    String author;
+    private String author;
 
+    @OneToOne(mappedBy = "header", cascade = CascadeType.ALL)
+    private EnergyStatement energyStatement;
 }
