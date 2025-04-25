@@ -18,7 +18,4 @@ public class EnergyStatementHeader {
     private String version;
 
     private String author;
-
-    @OneToOne(mappedBy = "header", cascade = CascadeType.ALL)
-    private EnergyStatement energyStatement;
 }
