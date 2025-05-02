@@ -1,9 +1,6 @@
 package com.example.energydec.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -13,6 +10,7 @@ public class EnergyStatement {
     @Id
     private Integer id;
 
+    @Column(name = "header_id", insertable = false, updatable = false)
     private Integer headerId;
 
     private LocalDate declarationDate;
