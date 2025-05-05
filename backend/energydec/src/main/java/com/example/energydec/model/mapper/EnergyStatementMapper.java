@@ -10,7 +10,10 @@ import java.util.Objects;
 
 public class EnergyStatementMapper {
 
-    public EnergyStatementResponse map(EnergyStatement energyStatement) {
+    private EnergyStatementMapper() {
+    }
+
+    public static EnergyStatementResponse map(EnergyStatement energyStatement) {
         if (Objects.isNull(energyStatement)) {
             return null;
         }
@@ -28,7 +31,7 @@ public class EnergyStatementMapper {
         );
     }
 
-    public EnergyStatement map(EnergyStatementCreate energyStatementCreate) {
+    public static EnergyStatement map(EnergyStatementCreate energyStatementCreate) {
         if (Objects.isNull(energyStatementCreate)) {
             return null;
         }
@@ -45,7 +48,7 @@ public class EnergyStatementMapper {
         return energyStatement;
     }
 
-    public void map(EnergyStatementUpdate energyStatementUpdate, EnergyStatement oldEnergyStatement) {
+    public static void map(EnergyStatementUpdate energyStatementUpdate, EnergyStatement oldEnergyStatement) {
         if (Objects.nonNull(energyStatementUpdate.declarationDate())) {
             oldEnergyStatement.setDeclarationDate(LocalDate.parse(energyStatementUpdate.declarationDate()));
         }
@@ -65,6 +68,5 @@ public class EnergyStatementMapper {
         if (Objects.nonNull(energyStatementUpdate.energyPerformance())) {
             oldEnergyStatement.setEnergyPerformance(energyStatementUpdate.energyPerformance());
         }
-
     }
 }
