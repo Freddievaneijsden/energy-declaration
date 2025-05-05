@@ -1,4 +1,4 @@
-package com.example.energydec.model.dto;
+package com.example.energydec.model.dto.energyStatement;
 
 import org.springframework.lang.NonNull;
 
