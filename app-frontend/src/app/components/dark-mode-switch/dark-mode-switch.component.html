@@ -1,0 +1,15 @@
+<div class="flex items-center">
+    <div class="icons lex items-center mr-5">
+        <mat-icon class="light" *ngIf="!isDarkMode()">light_mode</mat-icon>
+        <mat-icon class="dark" *ngIf="isDarkMode()">dark_mode</mat-icon>
+    </div>
+    <mat-slide-toggle
+    class="ms-2"
+    #darkModeSwitch
+    [checked]="isDarkMode()"
+    [disabled]="disabled()"
+    hideIcon="true"
+    (change)="changeTheme()">
+
+</mat-slide-toggle>
+</div>
